@@ -1,0 +1,29 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-wear
+  namespace: staging
+spec:
+  rules: 
+  - host: staging-guestbook.mstakx.io
+    http:
+      paths: 
+      - path: /
+        backend:
+          serviceName: frontend
+          servicePort: 80
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-wear
+  namespace: production
+spec:
+  rules:
+  - host: guestbook.mstakx.io
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: frontend
+          servicePort: 80

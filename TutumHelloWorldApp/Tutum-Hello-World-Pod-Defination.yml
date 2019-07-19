@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: tutum-hello-world-pod
+  labels: 
+    app: tutum-hello-world-app
+spec:
+  containers:
+    - name: tutum-hello-world-container
+      image: tutum/hello-world
+      ports:
+        - containerPort: 80
