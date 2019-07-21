@@ -18,9 +18,9 @@ The guestbook application is used with Ingress Controller & Horizontal Pod Autos
 11. Validate the Deployment
 
 # Manuall Deployment:
-Please follow the steps mentioned here - ./K8s-Deployment-Steps.pdf Steps.pdf in order to deploy the application maually.
+Please follow the steps mentioned at https://github.com/keyurbitw/ApplicationDeploymentK8s/blob/master/K8s-Deployment-Steps.pdf in order to deploy the application maually.
 
 # Single File Deployment:
 All the deployment steps are written in a Single File. You can execute that file to deploy the application. 
-Download or Clone this repo, and execute the ./SingleDeploymentFile.sh present in the repo.
+Download or Clone this repo, and execute the https://github.com/keyurbitw/ApplicationDeploymentK8s/blob/master/SingleDeploymentFile.sh present in the repo.
 
