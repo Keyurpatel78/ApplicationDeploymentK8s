@@ -26,7 +26,8 @@ Download or Clone this repo, and execute the https://github.com/keyurbitw/Applic
 
 # Validating the Deployment:
 Execute the below command to get the IP Address of the Ingress Controller.
-** > IPAddress=$(kubectl get pods -n staging -o wide | grep ‘ingress’ | awk ‘{print $7}’ | sed -e ‘s/ip-/ip:/g’ | cut -d ‘:’ -f2 | sed -e ‘s/-/./g’)**
+
+> IPAddress=$(kubectl get pods -n staging -o wide | grep ‘ingress’ | awk ‘{print $7}’ | sed -e ‘s/ip-/ip:/g’ | cut -d ‘:’ -f2 | sed -e ‘s/-/./g’)**
  
 Once the IP Address is retrived we shall send the request to the Guestbook Application via Ingress Controller. We shall pass the hostname as a Header in the request as the hostname used here are not real hostnames. This is how it shall work.
  - Any request made to the guestbook.mstax.io will go the Guestbook Application running in the production Namespace.
