@@ -44,6 +44,7 @@ Any request where the Hostname is not provided will be sent to the Hello World s
 > curl “$IPAddress” -I -o /dev/null -w ‘%{http_code}\n’ -s
 
 You can verify the above steps by checking the logs of the Ingress Controller. It shall show you to which services the requests are redirected. You can see below logs:
-   **10.44.0.0 - [10.44.0.0] - - [21/Jul/2019:16:18:56 +0000] “HEAD / HTTP/1.1” 200 0 “-” “curl/7.47.0” 92 0.004 # [staging-frontend-80] [] 10.46.0.0:80 0 0.000 200 32339ca4f75f248c09bbd6984b33b366
-   **10.44.0.0 - [10.44.0.0] - - [21/Jul/2019:16:19:24 +0000] “HEAD / HTTP/1.1" 200 0 “-” “curl/7.47.0" 84 0.001 #[production-frontend-80] [] 10.40.0.4:80 0 0.000 200 c13a6aa10437a251600157cafa3dc11e
-   **10.44.0.0 - [10.44.0.0] - - [21/Jul/2019:16:20:15 +0000] “HEAD / HTTP/1.1” 200 0 “-” “curl/7.47.0” 78 0.002 # [tutum-namespace-tutum-hello-world-service-80] [] 10.46.0.7:80 0 0.000 200 e4c28f57bb592d52e42ce15da73e8f77
+
+   **10.44.0.0 - [10.44.0.0] - - [21/Jul/2019:16:18:56 +0000] “HEAD / HTTP/1.1” 200 0 “-” “curl/7.47.0” 92 0.004 # [staging-frontend-80] [] 10.46.0.0:80 0 0.000 200 32339ca4f75f248c09bbd6984b33b366**
+   **10.44.0.0 - [10.44.0.0] - - [21/Jul/2019:16:19:24 +0000] “HEAD / HTTP/1.1" 200 0 “-” “curl/7.47.0" 84 0.001 #[production-frontend-80] [] 10.40.0.4:80 0 0.000 200 c13a6aa10437a251600157cafa3dc11e**
+   **10.44.0.0 - [10.44.0.0] - - [21/Jul/2019:16:20:15 +0000] “HEAD / HTTP/1.1” 200 0 “-” “curl/7.47.0” 78 0.002 # [tutum-namespace-tutum-hello-world-service-80] [] 10.46.0.7:80 0 0.000 200 e4c28f57bb592d52e42ce15da73e8f77**
