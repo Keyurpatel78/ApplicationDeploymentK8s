@@ -4,9 +4,6 @@ Overview:
 You need to have a Kubernetes cluster, and the kubectl command-line tool must be configured to communicate with your cluster. This application is deployed on a 2 node Kubernetes Cluster. Here I have used the guesbook application.
 The guestbook application is used with Ingress Controller & Horizontal Pod Autoscaler.
 
-Architecture:
-
-
 Deployment Steps:
 1. Create Namespace:
 2. Deploy the Guestbook Applcation in both the Namespace:
