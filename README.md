@@ -21,13 +21,13 @@ The guestbook application is used with Ingress Controller & Horizontal Pod Autos
 Please follow the steps mentioned at https://github.com/keyurbitw/ApplicationDeploymentK8s/blob/master/K8s-Deployment-Steps.pdf in order to deploy the application maually.
 
 # Single File Deployment:
-All the deployment steps are written in a Single File. You can execute that file to deploy the application. 
+All the deployment steps are written in a single shell script. You can execute that shell script to deploy the application. 
 Download or Clone this repo, and execute the https://github.com/keyurbitw/ApplicationDeploymentK8s/blob/master/SingleDeploymentFile.sh present in the repo.
 
 # Validating the Deployment:
 Execute the below command to get the IP Address of the Ingress Controller.
 
-> IPAddress=$(kubectl get pods -n staging -o wide | grep ‘ingress’ | awk ‘{print $7}’ | sed -e ‘s/ip-/ip:/g’ | cut -d ‘:’ -f2 | sed -e ‘s/-/./g’)
+> **IPAddress=$(kubectl get pods -n staging -o wide | grep ‘ingress’ | awk ‘{print $7}’ | sed -e ‘s/ip-/ip:/g’ | cut -d ‘:’ -f2 | sed -e ‘s/-/./g’)**
  
 Once the IP Address is retrived we shall send the request to the Guestbook Application via Ingress Controller. We shall pass the hostname as a Header in the request as the hostname used here are not real hostnames. This is how it shall work.
  - Any request made to the guestbook.mstax.io will go the Guestbook Application running in the production Namespace.
@@ -35,13 +35,13 @@ Once the IP Address is retrived we shall send the request to the Guestbook Appli
  - All the other requestes will be routed to the HelloWorld Service running in tutum-namespace Namespace.
 
 Execute the below command to check if the request was successfully sent to Application running in the stagging Namespace. You shall receive 200 as the output of the below command.
-> curl “$IPAddress” -I -H ‘Host: staging-guestbook.mstax.io’ -o /dev/null -w ‘%{http_code}\n’ -s
+> **curl “$IPAddress” -I -H ‘Host: staging-guestbook.mstax.io’ -o /dev/null -w ‘%{http_code}\n’ -s**
 
 Execute the below command to check if the request was successfully sent to Application running in the production Namespace. You shall receive 200 as the output of the below command.
-> curl “$IPAddress” -I -H ‘Host: guestbook.mstax.io’ -o /dev/null -w ‘%{http_code}\n’ -s
+> **curl “$IPAddress” -I -H ‘Host: guestbook.mstax.io’ -o /dev/null -w ‘%{http_code}\n’ -s**
 
 Any request where the Hostname is not provided will be sent to the Hello World service running in the tutum-namespace Namespace. You can check that using below command. You shall see 200 as the output.
-> curl “$IPAddress” -I -o /dev/null -w ‘%{http_code}\n’ -s
+> **curl “$IPAddress” -I -o /dev/null -w ‘%{http_code}\n’ -s**
 
 You can verify the above steps by checking the logs of the Ingress Controller. It shall show you to which services the requests are redirected. You can see below logs:
 
