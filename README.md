@@ -17,4 +17,10 @@ Deployment Steps:
 10. Create an Horizontal Pod Autoscaler for Ingress Controller
 11. Validate the Deployment
 
-Please follow the steps mentioned here - https://github.com/keyurbitw/ApplicationDeploymentK8s/blob/master/K8s-Deployment-Steps.pdf in order to deploy the application.
+Manuall Deployment:
+Please follow the steps mentioned here - https://github.com/keyurbitw/ApplicationDeploymentK8s/blob/master/K8s-Deployment-Steps.pdf in order to deploy the application maually.
+
+Single File Deployment:
+All the deployment steps are written in a Single File. You can execute that File to deploy the application. 
+Download or Clone this repo, and execute the SingleDeploymentFile.sh present in the repo.
+
