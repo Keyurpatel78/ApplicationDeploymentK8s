@@ -1,4 +1,4 @@
-                                                # ApplicationDeploymentK8s #
+                                                # ApplicationDeploymentK8s
 
 # Overview: #
 You need to have a Kubernetes cluster, and the kubectl command-line tool must be configured to communicate with your cluster. This application is deployed on a 2 node Kubernetes Cluster. Here I have used the guesbook application.
