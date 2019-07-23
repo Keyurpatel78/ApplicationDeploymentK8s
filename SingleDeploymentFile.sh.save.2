@@ -1,4 +1,6 @@
+
 echo "Installing the Guestbook Application. Please standby..."
+
 
 K8s=$(which kubectl)
 
@@ -29,6 +31,19 @@ else
 
 	kubectl create -f TutumHelloWorldApp/
 
+	echo "Please add below IP(s) in hosts file!!"
 	kubectl get pods -n staging -o wide | grep 'ingress' | awk '{print $7}' | sed -e 's/ip-/ip:/g' | cut -d ':' -f2 | sed -e 's/-/./g'
+
+	echo "Checking if Deployment is working or Not"
+
+        echo "Sending 'guestbook.mstax.io' as hostname in  Headers to the Ingress Controller"
+
+        StatusCode=$(curl "$IPAddress" -I -H 'Host: guestbook.mstax.io' -o /dev/null -w '%{http_code}\n' -s)
+
+	echo $StatusCode
+
+	if [ "$StatusCode" -eq 200 ]
+	then
+		echo "Request Successfully Handled by "
 
 fi

@@ -1,0 +1,10 @@
+kubeadm=$(kubeadm version -o short)
+
+if [ "$kubeadm" -ne "v1.13.8" ]
+then
+	echo "Upgrading Kubeadm to $kubeadm "
+	#sudo apt-get upgrade kubeadm=v1.13.8 -y
+	#sudo kubeadm upgrade apply v1.13.8 -y
+fi
+
+

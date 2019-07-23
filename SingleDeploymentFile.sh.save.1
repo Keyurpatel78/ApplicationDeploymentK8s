@@ -1,4 +1,6 @@
+
 echo "Installing the Guestbook Application. Please standby..."
+
 
 K8s=$(which kubectl)
 
@@ -29,6 +31,7 @@ else
 
 	kubectl create -f TutumHelloWorldApp/
 
-	kubectl get pods -n staging -o wide | grep 'ingress' | awk '{print $7}' | sed -e 's/ip-/ip:/g' | cut -d ':' -f2 | sed -e 's/-/./g'
+	echo "Please add below IP(s) in hosts file!!"
+	kubectl get pods -n staging -o wide | grep 'ingress' | awk '{print $7}' | sed -e 's/ip-/ip:/g' | cut -d 
 
 fi
